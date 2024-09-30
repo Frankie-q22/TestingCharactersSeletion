@@ -51,6 +51,7 @@ Teal = (75,177,180)
 Maroon = (128,0,0)
 DarkYellow = (164,136,0)
 DarkTeal =(0,37,44)
+Green = (0,255,0)
 
 scaleBTN1 = pygame.image.load("NearTransparent.png")
 scaleBTN1 = pygame.transform.scale(scaleBTN1,(155, 30))
@@ -245,6 +246,38 @@ ShaolinHovered2 = FighterEX(0,205,565,True,ShaolinDataHover,Shaolinsheet,Shaolin
 YasukeHovered1 = FighterEX(0,150,140,True,YasukeDataHover,Yasukesheet,YasukeAnimation)#3rd Row
 YasukeHovered2 = FighterEX(0,150,390,True,YasukeDataHover,Yasukesheet,YasukeAnimation)
 
+#Creates Characters # Player 1
+Beetle1= FighterEX(1,200,360,False,BeetleData1,Beetlesheet,BeetleAnimation)
+Farmer1=FighterEX(1,200,360,False,FarmerData1,Farmersheet,FarmerAnimation)
+Ghost1=FighterEX(1,200,360,False,GhostData1,Ghostsheet,GhostAnimation)
+Lady1=FighterEX(1,200,360,False,LadyData1,Ladysheet,LadyAnimation)
+Monk1=FighterEX(1,200,360,False,MonkData1,Monksheet,MonkAnimation)
+Ninja1=FighterEX(1,200,360,False,NinjaData1,Ninjasheet,NinjaAnimation)
+Pirate1=FighterEX(1,200,360,False,PirateData1,Piratesheet,PirateAnimation)
+Ronin1 = FighterEX(1,200,360,False,RoninData1,Roninsheet,RoninAnimation)
+Samurai1 = FighterEX(2,200,360,True,SamuraiData1,Samuraisheet,SamuraiAnimation)
+Sensei1=FighterEX(1,200,360,False,SenseiData1,Senseisheet,SenseiAnimation)
+Shaolin1=FighterEX(1,200,360,False,ShaolinData1,Shaolinsheet,ShaolinAnimation)
+Yasuke1 = FighterEX(1,200,360,False,YasukeData1,Yasukesheet,YasukeAnimation)
+
+  
+#Creates Characters # Player 2
+Beetle2= FighterEX(2,700,360,True,BeetleData2,Beetlesheet,BeetleAnimation)
+Farmer2=FighterEX(2,700,360,True,FarmerData2,Farmersheet,FarmerAnimation)
+Ghost2=FighterEX(2,700,360,True,GhostData2,Ghostsheet,GhostAnimation)
+Lady2=FighterEX(2,700,360,True,LadyData2,Ladysheet,LadyAnimation)
+Monk2=FighterEX(2,700,360,True,MonkData2,Monksheet,MonkAnimation)
+Ninja2=FighterEX(2,700,360,True,NinjaData2,Ninjasheet,NinjaAnimation)
+Pirate2=FighterEX(2,700,360,True,PirateData2,Piratesheet,PirateAnimation)
+Ronin2 = FighterEX(2,700,360,True,RoninData2,Roninsheet,RoninAnimation)
+Samurai2 = FighterEX(2,700,360,True,SamuraiData2,Samuraisheet,SamuraiAnimation)
+Sensei2=FighterEX(2,700,360,True,SenseiData2,Senseisheet,SenseiAnimation)
+Shaolin2=FighterEX(2,700,360,True,ShaolinData2,Shaolinsheet,ShaolinAnimation)
+Yasuke2 = FighterEX(2,700,360,True,YasukeData2,Yasukesheet,YasukeAnimation)
+
+
+
+
 def CharacterSelectMenu():
     while True:
      clock 
@@ -258,10 +291,16 @@ def CharacterSelectMenu():
      lettersnumbers("Player 2 : ", Font(30),White, 100,325)
      
      
-     characters = [Beetle0, Farmer0, Ghost0, Lady0, Monk0, Ninja0, Pirate0, Ronin0, Samurai0, Sensei0, Shaolin0, Yasuke0]
-     for character in characters:
+     characterselection = [Beetle0, Farmer0, Ghost0, Lady0, Monk0, Ninja0, Pirate0, Ronin0, Samurai0, Sensei0, Shaolin0, Yasuke0]
+     for character in characterselection:
          character.update()
          character.Draw(Screen)
+    
+     playerselected1 = [Beetle1, Farmer1, Ghost1, Lady1, Monk1, Ninja1, Pirate1,Ronin1, Samurai1, Sensei1, Shaolin1, Yasuke1]
+     playerselected2 = [Beetle2, Farmer2, Ghost2, Lady2, Monk2, Ninja2, Pirate2,Ronin2, Samurai2, Sensei2, Shaolin2, Yasuke2]
+    
+     
+           
     
      Beetle1button = Buttons((scaleBTN3),(425,310), "1", Font(25), White, Red)
      Beetle2button = Buttons((scaleBTN3),(425,350), "2", Font(25), White, Red)
@@ -296,108 +335,56 @@ def CharacterSelectMenu():
          button.changeColor(Mouse)
          button.update(Screen)
      
-    
      
-     if Ronin1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Ronin", Font(30),DarkYellow, 100,90)
-         RoninHovered1.Draw(Screen)
-         RoninHovered1.update()
-     if Ronin2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Ronin", Font(30),White, 100,325)
-         RoninHovered2.Draw(Screen)
-         RoninHovered2.update()
-     if Sensei1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Sensei", Font(30),DarkYellow, 100,90)
-         SenseiHovered1.Draw(Screen)
-         SenseiHovered1.update()
-     if Sensei2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Sensei", Font(30),White, 100,325)
-         SenseiHovered2.Draw(Screen)
-         SenseiHovered2.update()
-     if Ghost1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Ghost", Font(30),DarkYellow, 100,90)
-         GhostHovered1.Draw(Screen)
-         GhostHovered1.update()
-     if Ghost2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Ghost", Font(30),White, 100,325)
-         GhostHovered2.Draw(Screen)
-         GhostHovered2.update()
-     if Monk1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Monk", Font(30),DarkYellow, 100,90)
-         MonkHovered1.Draw(Screen)
-         MonkHovered1.update()
-     if Monk2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Monk", Font(30),White, 100,325)
-         MonkHovered2.Draw(Screen)
-         MonkHovered2.update()
-     if Lady1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Lady", Font(30),DarkYellow, 100,90)
-         LadyHovered1.Draw(Screen)
-         LadyHovered1.update()
-     if Lady2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Lady", Font(30),White, 100,325)
-         LadyHovered2.Draw(Screen)
-         LadyHovered2.update()
-     if Beetle1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Beetle", Font(30),DarkYellow, 100,90)
-         BeetleHovered1.Draw(Screen)
-         BeetleHovered1.update()
-     if Beetle2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Beetle", Font(30),White, 100,325)
-         BeetleHovered2.Draw(Screen)
-         BeetleHovered2.update()
-     if Ninja1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Ninja", Font(30),DarkYellow, 100,90)
-         NinjaHovered1.Draw(Screen)
-         NinjaHovered1.update()
-     if Ninja2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Ninja", Font(30),White, 100,325)
-         NinjaHovered2.Draw(Screen)
-         NinjaHovered2.update()
-     if Farmer1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Farmer", Font(30),DarkYellow, 100,90)
-         FarmerHovered1.Draw(Screen)
-         FarmerHovered1.update()
-     if Farmer2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Farmer", Font(30),White, 100,325)
-         FarmerHovered2.Draw(Screen)
-         FarmerHovered2.update()
-     if Pirate1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Pirate", Font(30),DarkYellow, 100,90)
-         PirateHovered1.Draw(Screen)
-         PirateHovered1.update()
-     if Pirate2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Pirate", Font(30),White, 100,325)
-         PirateHovered2.Draw(Screen) 
-         PirateHovered2.update()
-     if Samurai1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Samurai", Font(30),DarkYellow, 100,90)
-         SamuraiHovered1.Draw(Screen)
-         SamuraiHovered1.update()
-     if Samurai2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Samurai", Font(30),White, 100,325)
-         SamuraiHovered2.Draw(Screen)
-         SamuraiHovered2.update()
-     if Shaolin1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Shaolin", Font(30),DarkYellow, 100,90)
-         ShaolinHovered1.Draw(Screen)
-         ShaolinHovered1.update()
-     if Shaolin2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Shaolin", Font(30),White, 100,325)
-         ShaolinHovered2.Draw(Screen)
-         ShaolinHovered2.update()
-     if Yasuke1button.checkForInput(Mouse):
-         lettersnumbers("Player 1 : Yasuke", Font(30),DarkYellow, 100,90)
-         YasukeHovered1.Draw(Screen)
-         YasukeHovered1.update()
-     if Yasuke2button.checkForInput(Mouse):
-         lettersnumbers("Player 2 : Yasuke", Font(30),White, 100,325)
-         YasukeHovered2.Draw(Screen)
-         YasukeHovered2.update()
+     def handle_character_hover(button, hovered_character_p1, hovered_character_p2, player_num, character_name):
+         if button.checkForInput(Mouse):
+           if player_num == 1:
+            lettersnumbers(f"Player 1 : {character_name}", Font(30), DarkYellow, 100, 90)
+            hovered_character_p1.Draw(Screen)
+            hovered_character_p1.update()
+           elif player_num == 2:
+            lettersnumbers(f"Player 2 : {character_name}", Font(30), White, 100, 325)
+            hovered_character_p2.Draw(Screen)
+            hovered_character_p2.update()
      
-     Player_1 = None
-     Player_2 = None
+     handle_character_hover(Ronin1button, RoninHovered1, RoninHovered2, 1, "Ronin")
+     handle_character_hover(Ronin2button, RoninHovered1, RoninHovered2, 2, "Ronin")
+     handle_character_hover(Sensei1button,SenseiHovered1,SenseiHovered2,1, "Sensei")
+     handle_character_hover(Sensei2button,SenseiHovered1,SenseiHovered2,2, "Sensei")
+     handle_character_hover(Ghost1button,GhostHovered1,GhostHovered2,1, "Ghost")
+     handle_character_hover(Ghost2button,GhostHovered1,GhostHovered2,2, "Ghost")
+     handle_character_hover(Monk1button,MonkHovered1,MonkHovered2,1, "Monk")
+     handle_character_hover(Monk2button,MonkHovered1,MonkHovered2,2, "Monk")
+     handle_character_hover(Lady1button,LadyHovered1,LadyHovered2,1, "Lady")
+     handle_character_hover(Lady2button,LadyHovered1,LadyHovered2,2, "Lady")
+     handle_character_hover(Beetle1button,BeetleHovered1,BeetleHovered2,1, "Beetle")
+     handle_character_hover(Beetle2button,BeetleHovered1,BeetleHovered2,2, "Beetle")
+     handle_character_hover(Ninja1button,NinjaHovered1,NinjaHovered2,1, "Ninja")
+     handle_character_hover(Ninja2button,NinjaHovered1,NinjaHovered2,2, "Ninja")
+     handle_character_hover(Farmer1button,FarmerHovered1,FarmerHovered2,1, "Farmer")
+     handle_character_hover(Farmer2button,FarmerHovered1,FarmerHovered2,2, "Farmer")
+     handle_character_hover(Pirate1button,PirateHovered1, PirateHovered2,1, "Pirate")
+     handle_character_hover(Pirate2button,PirateHovered1,PirateHovered2,2, "Pirate")
+     handle_character_hover(Samurai1button,SamuraiHovered1,SamuraiHovered2,1, "Samurai")
+     handle_character_hover(Samurai2button,SamuraiHovered1,SamuraiHovered2,2, "Samurai")
+     handle_character_hover(Shaolin1button,ShaolinHovered1,ShaolinHovered2,1, "Shaolin")
+     handle_character_hover(Shaolin2button,ShaolinHovered1,ShaolinHovered2,2, "Shaolin")
+     handle_character_hover(Yasuke1button,YasukeHovered1,YasukeHovered2,1, "Yasuke")
+     handle_character_hover(Yasuke2button,YasukeHovered1,YasukeHovered2,2, "Yasuke")
      
+      #Player_1 = None
+      #Player_2 = None
+     
+     Confirmp1 = Buttons((scaleBTN2),(260,300), "Confirm", Font(25), White, Green)
+     Confirmp1.changeColor(Mouse)
+     Confirmp1.update(Screen)
+     
+     Confirmp2 = Buttons((scaleBTN2),(260,550), "Confirm", Font(25), White, Green)
+     Confirmp2.changeColor(Mouse)
+     Confirmp2.update(Screen)
+     
+            
+     pygame.display.update()
      BACK = Buttons((scaleBTN2),(30,15), "BACK", Font(25), White, Red)
 
      BACK.changeColor(Mouse)
@@ -410,6 +397,8 @@ def CharacterSelectMenu():
          if event.type == pygame.MOUSEBUTTONDOWN:
                 if BACK.checkForInput(Mouse):
                     Starting_menu()
+         #if event.type == pygame.MOUSEBUTTONDOWN
+               #if 
      pygame.display.update()
      
 
