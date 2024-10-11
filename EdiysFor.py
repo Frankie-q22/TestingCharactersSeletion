@@ -504,13 +504,13 @@ def CharacterSelectMenu():
                      if button.checkForInput(Mouse):
                          hovered_character_p1 = button.character_name  # Store the character name
                          print(f"Player 1 hovered: {hovered_character_p1}")
-                         hovered_character_p1.Draw(Screen)
+                        
                 # Check for character selection for Player 2
                 for button in buttons_p2:
                      if button.checkForInput(Mouse):
                          hovered_character_p2 = button.character_name
                          print(f"Player 2 hovered: {hovered_character_p2}")
-                         character.Draw(Screen)
+                        
                 # Check for confirmation buttons
                 if Confirmp1.checkForInput(Mouse):
                      if hovered_character_p1:
