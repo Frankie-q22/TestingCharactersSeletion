@@ -32,6 +32,7 @@ def display_Bg1():
  scaledBG = pygame.transform.scale(StartMenubackground,(Screen_Width, Screen_Height))
  Screen.blit(scaledBG,(0,0))
  
+
 Characterselectbackround = pygame.image.load("c:/Users/Frank/FFH/Backrounds/BackCS.jpg").convert_alpha()
 def display_Bg2():
  scaledBG = pygame.transform.scale(Characterselectbackround,(Screen_Width, Screen_Height))
@@ -276,9 +277,12 @@ Shaolin2=FighterEX(2,700,360,True,ShaolinData2,Shaolinsheet,ShaolinAnimation)
 Yasuke2 = FighterEX(2,700,360,True,YasukeData2,Yasukesheet,YasukeAnimation)
 
 
-
+global hovered_character_p1, hovered_character_p2
+global selected_character_p1, selected_character_p2
+global Fighter_1, Fighter_2
 
 def CharacterSelectMenu():
+     
     while True:
      clock 
         
@@ -295,37 +299,63 @@ def CharacterSelectMenu():
      for character in characterselection:
          character.update()
          character.Draw(Screen)
-    
-     playerselected1 = [Beetle1, Farmer1, Ghost1, Lady1, Monk1, Ninja1, Pirate1,Ronin1, Samurai1, Sensei1, Shaolin1, Yasuke1]
-     playerselected2 = [Beetle2, Farmer2, Ghost2, Lady2, Monk2, Ninja2, Pirate2,Ronin2, Samurai2, Sensei2, Shaolin2, Yasuke2]
+         
+     
+     
+     #playerselected1 = [Beetle1, Farmer1, Ghost1, Lady1, Monk1, Ninja1, Pirate1,Ronin1, Samurai1, Sensei1, Shaolin1, Yasuke1]
+     #playerselected2 = [Beetle2, Farmer2, Ghost2, Lady2, Monk2, Ninja2, Pirate2,Ronin2, Samurai2, Sensei2, Shaolin2, Yasuke2]
     
      
            
     
      Beetle1button = Buttons((scaleBTN3),(425,310), "1", Font(25), White, Red)
+     Beetle1button.character_name = "Beetle"  # Assign character name
      Beetle2button = Buttons((scaleBTN3),(425,350), "2", Font(25), White, Red)
+     Beetle2button.character_name = "Beetle"  # Assign character name
      Farmer1button= Buttons((scaleBTN3),(650,310), "1", Font(25), White, Red)
+     Farmer1button.character_name = "Farmer"  # Assign character name
      Farmer2button = Buttons((scaleBTN3),(650,350), "2", Font(25), White, Red)
+     Farmer2button.character_name = "Farmer"  # Assign character name
      Ghost1button = Buttons((scaleBTN3),(760,100), "1", Font(25), White, Red)
+     Ghost1button.character_name = "Ghost"  # Assign character name
      Ghost2button = Buttons((scaleBTN3),(760,140), "2", Font(25), White, Red)
+     Ghost2button.character_name = "Ghost"  # Assign character name
      Lady1button = Buttons((scaleBTN3),(880,100), "1", Font(25), White, Red)
+     Lady1button.character_name = "Lady"  # Assign character name
      Lady2button = Buttons((scaleBTN3),(880,140), "2", Font(25), White, Red)
+     Lady2button.character_name = "Lady"  # Assign character name
      Monk1button= Buttons((scaleBTN3),(650,100), "1", Font(25), White, Red)
+     Monk1button.character_name = "Monk"  # Assign character name
      Monk2button  = Buttons((scaleBTN3),(650,140), "2", Font(25), White, Red)
+     Monk2button.character_name = "Monk"  # Assign character name
      Ninja1button = Buttons((scaleBTN3),(525,310), "1", Font(25), White, Red)
+     Ninja1button.character_name = "Ninja"  # Assign character name
      Ninja2button = Buttons((scaleBTN3),(525,350), "2", Font(25), White, Red)
+     Ninja2button.character_name = "Ninja"  # Assign character name
      Pirate1button = Buttons((scaleBTN3),(760,310), "1", Font(25), White, Red)
+     Pirate1button.character_name = "Pirate"  # Assign character name
      Pirate2button = Buttons((scaleBTN3),(760,350), "2", Font(25), White, Red)
+     Pirate2button.character_name = "Pirate"  # Assign character name
      Ronin1button= Buttons((scaleBTN3),(425,100), "1", Font(25), White, Red)
+     Ronin1button.character_name = "Ronin"  # Assign character name
      Ronin2button = Buttons((scaleBTN3),(425,140), "2", Font(25), White, Red)
+     Ronin2button.character_name = "Ronin"  # Assign character name
      Samurai1button = Buttons((scaleBTN3),(880,310), "1", Font(25), White, Red)
+     Samurai1button.character_name =  "Samurai"  # Assign character name
      Samurai2button = Buttons((scaleBTN3),(880,350), "2", Font(25), White, Red)
+     Samurai2button.character_name = "Samurai"  # Assign character name
      Sensei1button = Buttons((scaleBTN3),(525,100), "1", Font(25), White, Red)
+     Sensei1button.character_name = "Sensei"  # Assign character name
      Sensei2button = Buttons((scaleBTN3),(525,140), "2", Font(25), White, Red)
+     Sensei2button.character_name = "Sensei"  # Assign character name
      Shaolin1button = Buttons((scaleBTN3),(525,450), "1", Font(25), White, Red)
+     Shaolin1button.character_name = "Shaolin"  # Assign character name
      Shaolin2button = Buttons((scaleBTN3),(525,490), "2", Font(25), White, Red)
+     Shaolin2button.character_name = "Shaolin"  # Assign character name
      Yasuke1button  = Buttons((scaleBTN3),(700,450), "1", Font(25), White, Red)
+     Yasuke1button.character_name = "Yasuke"  # Assign character name
      Yasuke2button = Buttons((scaleBTN3),(700,490), "2", Font(25), White, Red)
+     Yasuke2button.character_name = "Yasuke"  # Assign character name
 
 
      buttons_p1 = [Beetle1button, Farmer1button, Ghost1button, Lady1button, Monk1button, Ninja1button, Pirate1button, Ronin1button, Samurai1button, Sensei1button, Shaolin1button, Yasuke1button]
@@ -334,7 +364,6 @@ def CharacterSelectMenu():
      for button in buttons_p1 + buttons_p2:
          button.changeColor(Mouse)
          button.update(Screen)
-     
      
      def handle_character_hover(button, hovered_character_p1, hovered_character_p2, player_num, character_name):
          if button.checkForInput(Mouse):
@@ -345,7 +374,9 @@ def CharacterSelectMenu():
            elif player_num == 2:
             lettersnumbers(f"Player 2 : {character_name}", Font(30), White, 100, 325)
             hovered_character_p2.Draw(Screen)
-            hovered_character_p2.update()
+            hovered_character_p2.update() 
+            
+    
      
      handle_character_hover(Ronin1button, RoninHovered1, RoninHovered2, 1, "Ronin")
      handle_character_hover(Ronin2button, RoninHovered1, RoninHovered2, 2, "Ronin")
@@ -372,6 +403,9 @@ def CharacterSelectMenu():
      handle_character_hover(Yasuke1button,YasukeHovered1,YasukeHovered2,1, "Yasuke")
      handle_character_hover(Yasuke2button,YasukeHovered1,YasukeHovered2,2, "Yasuke")
      
+     
+
+     
       #Player_1 = None
       #Player_2 = None
      
@@ -383,6 +417,74 @@ def CharacterSelectMenu():
      Confirmp2.changeColor(Mouse)
      Confirmp2.update(Screen)
      
+            
+      # Global variables for storing fighters
+     Player_1 = None
+     Player_2 = None
+     Fighter_1 = None  # Instance of FighterEX for Player 1
+     Fighter_2 = None  # Instance of FighterEX for Player 2
+
+     # Function to map selected character to FighterEX instance 
+     def create_fighter(player, character_name):
+         global Fighter_1, Fighter_2
+
+         if player == 1:
+             if character_name == "Beetle":
+              Fighter_1 = FighterEX(1, 200, 360, False, BeetleData1, Beetlesheet, BeetleAnimation)
+             elif character_name == "Farmer":
+              Fighter_1 = FighterEX(1, 200, 360, False, FarmerData1, Farmersheet, FarmerAnimation)
+             elif character_name == "Ghost":
+              Fighter_1 = FighterEX(1, 200, 360, False, GhostData1, Ghostsheet, GhostAnimation)
+             elif character_name == "Lady":
+              Fighter_1 = FighterEX(1, 200, 360, False, LadyData1, Ladysheet, LadyAnimation)
+             elif character_name == "Monk":
+              Fighter_1 = FighterEX(1, 200, 360, False, MonkData1, Monksheet, MonkAnimation)
+             elif character_name == "Ninja":
+              Fighter_1 = FighterEX(1, 200, 360, False, NinjaData1, Ninjasheet, NinjaAnimation)
+             elif character_name == "Pirate":
+              Fighter_1 = FighterEX(1, 200, 360, False, PirateData1, Piratesheet, PirateAnimation)
+             elif character_name == "Ronin":
+              Fighter_1 = FighterEX(1, 200, 360, False, RoninData1, Roninsheet, RoninAnimation)
+             elif character_name == "Samurai":
+              Fighter_1 = FighterEX(1, 200, 360, False, SamuraiData1, Samuraisheet, SamuraiAnimation)
+             elif character_name == "Sensei":
+              Fighter_1 = FighterEX(1, 200, 360, False, SenseiData1, Senseisheet, SenseiAnimation)
+             elif character_name == "Shaolin":
+              Fighter_1 = FighterEX(1, 200, 360, False, ShaolinData1, Shaolinsheet, ShaolinAnimation)
+             elif character_name == "Yasuke":
+              Fighter_1 = FighterEX(1, 200, 360, False, YasukeData1, Yasukesheet, YasukeAnimation)
+
+         elif player == 2:
+             if character_name == "Beetle":
+                 Fighter_2 = FighterEX(2, 700, 360, True, BeetleData2, Beetlesheet, BeetleAnimation)
+             elif character_name == "Farmer":
+                 Fighter_2 = FighterEX(2, 700, 360, True, FarmerData2, Farmersheet, FarmerAnimation)
+             elif character_name == "Ghost":
+                 Fighter_2 = FighterEX(2, 700, 360, True, GhostData2, Ghostsheet, GhostAnimation)
+             elif character_name == "Lady":
+                 Fighter_2 = FighterEX(2, 700, 360, True, LadyData2, Ladysheet, LadyAnimation)
+             elif character_name == "Monk":
+                 Fighter_2 = FighterEX(2, 700, 360, True, MonkData2, Monksheet, MonkAnimation)
+             elif character_name == "Ninja":
+                 Fighter_2 = FighterEX(2, 700, 360, True, NinjaData2, Ninjasheet, NinjaAnimation)
+             elif character_name == "Pirate":
+                 Fighter_2 = FighterEX(2, 700, 360, True, PirateData2, Piratesheet, PirateAnimation)
+             elif character_name == "Ronin":
+                 Fighter_2 = FighterEX(2, 700, 360, True, RoninData2, Roninsheet, RoninAnimation)
+             elif character_name == "Samurai":
+                 Fighter_2 = FighterEX(2, 700, 360, True, SamuraiData2, Samuraisheet, SamuraiAnimation)
+             elif character_name == "Sensei":
+                 Fighter_2 = FighterEX(2, 700, 360, True, SenseiData2, Senseisheet, SenseiAnimation)
+             elif character_name == "Shaolin":
+                 Fighter_2 = FighterEX(2, 700, 360, True, ShaolinData2, Shaolinsheet, ShaolinAnimation)
+             elif character_name == "Yasuke":
+                 Fighter_2 = FighterEX(2, 700, 360, True, YasukeData2, Yasukesheet, YasukeAnimation)
+      
+
+    
+      
+      
+            
             
      pygame.display.update()
      BACK = Buttons((scaleBTN2),(30,15), "BACK", Font(25), White, Red)
@@ -397,8 +499,30 @@ def CharacterSelectMenu():
          if event.type == pygame.MOUSEBUTTONDOWN:
                 if BACK.checkForInput(Mouse):
                     Starting_menu()
-         #if event.type == pygame.MOUSEBUTTONDOWN
-               #if 
+                # Check for character selection for Player 1
+                for button in buttons_p1:
+                     if button.checkForInput(Mouse):
+                         hovered_character_p1 = button.character_name  # Store the character name
+                         print(f"Player 1 hovered: {hovered_character_p1}")
+                         hovered_character_p1.Draw(Screen)
+                # Check for character selection for Player 2
+                for button in buttons_p2:
+                     if button.checkForInput(Mouse):
+                         hovered_character_p2 = button.character_name
+                         print(f"Player 2 hovered: {hovered_character_p2}")
+                         character.Draw(Screen)
+                # Check for confirmation buttons
+                if Confirmp1.checkForInput(Mouse):
+                     if hovered_character_p1:
+                         selected_character_p1 = hovered_character_p1
+                         create_fighter(1, selected_character_p1)
+                         print(f"Player 1 confirmed: {selected_character_p1}")
+                if Confirmp2.checkForInput(Mouse):
+                     if hovered_character_p2:
+                         selected_character_p2 = hovered_character_p2
+                         create_fighter(2, selected_character_p2)
+                         print(f"Player 2 confirmed: {selected_character_p2}")
+        
      pygame.display.update()
      
 
@@ -411,6 +535,16 @@ def Multiplayer_Mode():
  while True:
      CharacterSelectMenu()
      pygame.display.update()
+
+
+#def start_battle():
+    # Make sure both fighters are created before starting the battle
+    #if Fighter_1 and Fighter_2:
+        #print("Battle starting with:")
+       # print(f"Player 1: {Fighter_1}")
+        #print(f"Player 2: {Fighter_2}")
+        # Transition to battle screen logic here, e.g.:
+        # battle_screen(Fighter_1, Fighter_2)
 
 
 def Starting_menu():
