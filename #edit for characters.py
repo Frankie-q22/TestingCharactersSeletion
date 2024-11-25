@@ -1,6 +1,5 @@
 #edit for characters
-
- 
+import fighterEX
   
   
     
