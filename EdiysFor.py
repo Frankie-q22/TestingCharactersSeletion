@@ -16,26 +16,25 @@ Screen_Height = 600
 Screen = pygame.display.set_mode((Screen_Width,Screen_Height))
 pygame.display.set_caption("The Honor Of Fighting")
 
+# Backround Displays
+#_________________________________________________________________________________________________________________________________________________
 def Display_Backround(image_path):
     Backround = pygame.image.load(image_path).convert_alpha()
     ScaledBG = pygame.transform.scale(Backround,(Screen_Width,Screen_Height))
     Screen.blit(ScaledBG,(0,0))
 #Instance where this gets used:
 #  - For The Opening/ Press Space To Start Menu and Main Menu
-       #Line 666 and 737
+       #Line 666 and 737 (need to update and get correct line)
        #Starting Menu DIR("c:/Users/Frank/FFH/Backrounds/Menu.jpg")
 # - For The Character Select Menu 
-       #Line 318
+       #Line 318 (Need to update and get corrrect line)
        #Starting Menu DIR("c:/Users/Frank/FFH/Backrounds/BackCS.jpg")
        
-       
-       
-
-
-
+#**********************Need to make the list for this, for the backrounds that will be used in Backround Select**********************
 Backrounds = []
 
 #Fonts
+#_________________________________________________________________________________________________________________________________________________
 def Font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("c:/Users/Frank/FFH/Font/Turok.ttf", size)
 
@@ -62,6 +61,7 @@ scaleBTN3 = pygame.transform.scale(scaleBTN3,(20, 30))
 
 SPButton = Buttons((scaleBTN1),(200,200), "Single Player", Font(25), White, Red)
 MPButton = Buttons((scaleBTN1),(200,200), "Multiplayer", Font(25), White, Red)
+
 
 #define the font
 #countingfont = pygame.font.Font("Turok.ttf",150)
@@ -308,9 +308,7 @@ global Fighter_1, Fighter_2
 def CharacterSelectMenu():
      
     while True:
-     clock 
-        
-        
+     clock.tick(60)
      Mouse = pygame.mouse.get_pos()
 
      Display_Backround("c:/Users/Frank/FFH/Backrounds/BackCS.jpg")
@@ -324,13 +322,12 @@ def CharacterSelectMenu():
          character.update()
          character.Draw(Screen)
          
-     
-     
+    
+    
+         
      #playerselected1 = [Beetle1, Farmer1, Ghost1, Lady1, Monk1, Ninja1, Pirate1,Ronin1, Samurai1, Sensei1, Shaolin1, Yasuke1]
      #playerselected2 = [Beetle2, Farmer2, Ghost2, Lady2, Monk2, Ninja2, Pirate2,Ronin2, Samurai2, Sensei2, Shaolin2, Yasuke2]
     
-     
-           
     
      Beetle1button = Buttons((scaleBTN3),(425,310), "1", Font(25), White, Red)
      Beetle1button.character_name = "Beetle"  # Assign character name
@@ -400,6 +397,7 @@ def CharacterSelectMenu():
             hovered_character_p2.Draw(Screen)
             hovered_character_p2.update() 
             
+
 #     def handle_character_Show(event,button, hovered_character_p1, hovered_character_p2, player_num, character_name):
          #if event.type == pygame.MOUSEBUTTONDOWN: 
           #if button.checkForInput(Mouse):
@@ -412,21 +410,21 @@ def CharacterSelectMenu():
             #hovered_character_p2.Draw(Screen)
             #hovered_character_p2.update() 
             
-     def handle_character_Show(event, button, player, character_name):
-        global selected_character_p1, selected_character_p2
+     #def handle_character_Show(event, button, player, character_name):
+        #global selected_character_p1, selected_character_p2
 
-        if player == 1:
+        #if player == 1:
             # Show the confirmed character for Player 1, or the hovered character if none confirmed
-            if selected_character_p1:
-                character.Draw(Screen)(selected_character_p1, player)  # Display the confirmed character
-            else:
-                character.Draw(Screen)(character_name, player)  # Display the hovered character
-        elif player == 2:
+            #if selected_character_p1:
+                #character.Draw(Screen)(selected_character_p1, player)  # Display the confirmed character
+            #else:
+                #character.Draw(Screen)(character_name, player)  # Display the hovered character
+        #elif player == 2:
             # Show the confirmed character for Player 2, or the hovered character if none confirmed
-            if selected_character_p2:
-                character.Draw(Screen)(selected_character_p2, player)  # Display the confirmed character
-            else:
-                character.Draw(Screen)(character_name, player)  # Display the hovered character
+            #if selected_character_p2:
+                #character.Draw(Screen)(selected_character_p2, player)  # Display the confirmed character
+            #else:
+                #character.Draw(Screen)(character_name, player)  # Display the hovered character
      
      handle_character_hover(Ronin1button, RoninHovered1, RoninHovered2, 1, "Ronin")
      handle_character_hover(Ronin2button, RoninHovered1, RoninHovered2, 2, "Ronin")
@@ -468,7 +466,7 @@ def CharacterSelectMenu():
      Confirmp2.changeColor(Mouse)
      Confirmp2.update(Screen)
      
-            
+      
       # Global variables for storing fighters
      Player_1 = None
      Player_2 = None
@@ -579,28 +577,39 @@ def CharacterSelectMenu():
                      if button.checkForInput(Mouse):
                          hovered_character_p1 = button.character_name  # Store the character name
                          print(f"Player 1 selected: {hovered_character_p1}")
-                         p1_confirmed = False
+                         lettersnumbers(f"Player 1: {hovered_character_p1}", Font(30), DarkYellow, 100, 90)
+                         
+                     #elif hovered_character_p1:
+                          #hovered_character_p1.Draw(Screen)
                 # Check for character selection for Player 2
                 for button in buttons_p2:
                      if button.checkForInput(Mouse):
                          hovered_character_p2 = button.character_name
                          print(f"Player 2 selected: {hovered_character_p2}")
-                        
+                         lettersnumbers(f"Player 2: {selected_character_p2}", Font(30), DarkYellow, 100, 90)
+                   
                 # Check for confirmation buttons
                 if Confirmp1.checkForInput(Mouse):
                      if hovered_character_p1:
                          selected_character_p1 = hovered_character_p1
                          create_fighter(1, selected_character_p1)
                          print(f"Player 1 confirmed: {selected_character_p1}")
-                         
+                     
                 if Confirmp2.checkForInput(Mouse):
                      if hovered_character_p2:
                          selected_character_p2 = hovered_character_p2
                          create_fighter(2, selected_character_p2)
                          print(f"Player 2 confirmed: {selected_character_p2}")
-                         p1_confirmed = True
-                if p1_confirmed and p2_confirmed == True:
-                    BackroundSelect()
+                   
+                         # Display selected or hovered characters
+    
+
+
+
+     pygame.display.update()
+            
+                #if p1_confirmed and p2_confirmed == True:
+                    #BackroundSelect()
                           #if event.type == pygame.MOUSEBUTTONDOWN: 
                     
                         # Check for character selection for Player 1
