@@ -35,7 +35,7 @@ Backrounds = []
 
 #Fonts
 #_________________________________________________________________________________________________________________________________________________
-def Font(size): # Returns Press-Start-2P in the desired size
+def Font(size): # Returns Press-Start-2P in the desired size 
     return pygame.font.Font("c:/Users/Frank/FFH/Font/Turok.ttf", size)
 
 #Drawing the counter and point system
@@ -61,6 +61,7 @@ scaleBTN3 = pygame.transform.scale(scaleBTN3,(20, 30))
 
 SPButton = Buttons((scaleBTN1),(200,200), "Single Player", Font(25), White, Red)
 MPButton = Buttons((scaleBTN1),(200,200), "Multiplayer", Font(25), White, Red)
+
 
 
 #define the font
@@ -586,7 +587,7 @@ def CharacterSelectMenu():
                      if button.checkForInput(Mouse):
                          hovered_character_p2 = button.character_name
                          print(f"Player 2 selected: {hovered_character_p2}")
-                         lettersnumbers(f"Player 2: {selected_character_p2}", Font(30), DarkYellow, 100, 90)
+                         
                    
                 # Check for confirmation buttons
                 if Confirmp1.checkForInput(Mouse):
@@ -748,8 +749,7 @@ def main_menu():
          
          pygame.display.flip()
          pygame.display.update()
-         clock.tick(30)
-         
+         clock.tick(30)        
          
 main_menu()
         
